@@ -12,3 +12,9 @@ ON v.visit_id = t.visit_id
 WHERE t.transaction_id IS NULL
 ) AS a
 GROUP BY a.customer_id
+-- Leetcode 1075. Project Employees I
+SELECT
+p.project_id, ROUND(AVG(e.experience_years),2) AS average_years
+FROM Project AS p LEFT JOIN Employee AS e
+ON p.employee_id = e.employee_id
+GROUP BY p.project_id
